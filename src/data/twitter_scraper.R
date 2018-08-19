@@ -97,17 +97,5 @@ scrape_tweets = function(saving_path, n, french_key_word = 'Paris', spanish_key_
 
 
 # Execute main function --------------------------------------------------------
-scrape_tweets("test.csv", n = 100)
-
-
-
-
-
-
-
-
-
-
-
-
-
+scrape_tweets(paste0("data/raw/tweets_", Sys.Date(), ".csv"), n = 100)
+              
