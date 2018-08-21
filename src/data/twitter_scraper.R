@@ -62,6 +62,21 @@ clean_tweets = function(tweets_df){
 scrape_tweets = function(saving_path, n, french_key_word = 'Paris', spanish_key_word = 'Madrid',
                          english_key_word = 'London'){
 
+  # Parse args
+  if(!is.character(saving_path)){
+    stop("saving_path must be a string")
+  }
+  if(!is.numeric(n)){
+    stop("n must be numeric.")
+  }
+  if(!(n%%1 == 0 & n > 0)){
+    stop("n must be a positif integer")
+  }
+  if(!all(map_lgl(c(french_key_word, spanish_key_word, english_key_word), is.character))){
+    stop("key_word must be a string.")
+  }
+
+
   # Setup twitter access
   access_token = "983053340413186049-tNf2koGExSoWAZ2obLPpBppPOYe9hV2"
   access_secret = "DyRkqUZdDiIoD91owToR0Jdql26duLN7vGoNIPHZmaMGv"
@@ -98,4 +113,4 @@ scrape_tweets = function(saving_path, n, french_key_word = 'Paris', spanish_key_
 }
 
 # Execute main function --------------------------------------------------------
-scrape_tweets("data/raw", n = 1000)
+scrape_tweets("data/raw", n = "1000.1")
